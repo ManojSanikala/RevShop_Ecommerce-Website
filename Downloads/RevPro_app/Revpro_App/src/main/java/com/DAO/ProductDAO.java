@@ -27,13 +27,6 @@ public interface ProductDAO {
     // Method for Fashion Products
     public List<Products> getFashionProduct();
     
-
-    
-    
-
-    // Method for Other Products
-    public List<Products> getOtherProduct();
-    
  // Method for Electronic Products
     public List<Products> getAllElectronicProduct();
     
@@ -49,11 +42,7 @@ public interface ProductDAO {
     
 
   
-
-    // Method for Other Products
-    public List<Products> getAllOtherProduct();
-    
-    public List<Products> getProductBySearch(String ch);
+ public List<Products> getProductBySearch(String ch);
 
 
 	//public double getProductPrice(int productId);

@@ -107,27 +107,17 @@ button {
 				<label for="category" class="form-label">Product Category</label> <select
 					class="form-select" name="categories" id="category" required>
 					<option selected disabled>Choose a category</option>
-					<option value="milk">Milk</option>
-					<option value="paneer">Paneer</option>
-					<option value="ghee">Ghee</option>
-					<option value="curd">Curd</option>
-					<option value="ice-creams">Ice Creams</option>
-					<option value="milk-shake">Milk Shake</option>
-					<option value="lassi">Lassi</option>
-					<option value="ice-bars">Ice Bars</option>
-					<option value="cheese">Cheese</option>
-					<option value="others">Others</option>
+					<option value="electronics">Electronics</option>
+					<option value="home">Home Appliances</option>
+					<option value="fashion">Fashion</option>
+					
 				</select>
 			</div>
 
 			<!-- Product Status -->
 			<div class="form-group mb-3">
-				<label for="status" class="form-label">Product Status</label> <select
-					class="form-select" name="status" id="status" required>
-					<option selected disabled>Choose a status</option>
-					<option value="available">Available</option>
-					<option value="unavailable">Unavailable</option>
-				</select>
+				<label for="status" class="form-label">Product Stock</label>
+				<input type="number" name = "stock">
 			</div>
 
 			<!-- Upload Photo -->

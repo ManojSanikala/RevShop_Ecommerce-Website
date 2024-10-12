@@ -73,10 +73,10 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public Products getProductById(int id) {
-    	Products b = null;
+        Products b = null;
 
         try {
-            String sql = "select * from products where productId=?";
+            String sql = "SELECT * FROM products WHERE productId=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
 
@@ -89,7 +89,7 @@ public class ProductDAOImpl implements ProductDAO {
                 b.setDescription(rs.getString(3));
                 b.setPrice(rs.getString(4));
                 b.setProductCategory(rs.getString(5));
-                b.setStock(rs.getInt(6));  // Stock is now int
+                b.setStock(rs.getInt(6));  // Assuming stock is an integer
                 b.setPhoto(rs.getString(7));
                 b.setEmail(rs.getString(8));
             }
@@ -100,6 +100,7 @@ public class ProductDAOImpl implements ProductDAO {
 
         return b;
     }
+
 
     @Override
     public boolean updateEditProducts(Products b) {
@@ -148,14 +149,14 @@ public class ProductDAOImpl implements ProductDAO {
     public List<Products> getElectronicProduct() {
         List<Products> productList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM products WHERE category = 'Electronics'";
+            String query = "SELECT * FROM products WHERE productcategory = 'Electronics'";
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Products p = new Products();
-                p.setProductId(rs.getInt("id"));
-                p.setProductName(rs.getString("name"));
+                p.setProductId(rs.getInt("productId"));
+                p.setProductName(rs.getString("productName"));
                 p.setPhoto(rs.getString("photo"));
                 p.setPrice(rs.getString("price"));
 
@@ -171,21 +172,16 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Products> getHomeProduct() {
-        return getProductsByCategory("home");
-    }
-
-    @Override
-    public List<Products> getFashionProduct() {
     	List<Products> productList = new ArrayList<>();
         try {
-            String query = "SELECT * FROM products WHERE category = 'fashion'";
+            String query = "SELECT * FROM products WHERE productcategory = 'home'";
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
                 Products p = new Products();
-                p.setProductId(rs.getInt("id"));
-                p.setProductName(rs.getString("name"));
+                p.setProductId(rs.getInt("productId"));
+                p.setProductName(rs.getString("productName"));
                 p.setPhoto(rs.getString("photo"));
                 p.setPrice(rs.getString("price"));
 
@@ -199,10 +195,30 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Products> getOtherProduct() {
-        return getProductsByCategory("others");
+    public List<Products> getFashionProduct() {
+    	List<Products> productList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM products WHERE productcategory = 'fashion'";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Products p = new Products();
+                p.setProductId(rs.getInt("productId"));
+                p.setProductName(rs.getString("productName"));
+                p.setPhoto(rs.getString("photo"));
+                p.setPrice(rs.getString("price"));
+
+                System.out.println("Product: " + p.getProductName()); // Debugging
+                productList.add(p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return productList;
     }
 
+    
     private List<Products> getProductsByCategory(String category) {
         List<Products> list = new ArrayList<>();
         Products b = null;
@@ -377,36 +393,7 @@ public class ProductDAOImpl implements ProductDAO {
         return list;
     }
 
-    @Override
-    public List<Products> getAllOtherProduct() {
-        List<Products> list = new ArrayList<Products>();
-        Products product = null;
-
-        try {
-            String sql = "SELECT * FROM products WHERE productCategory=?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, "others");
-
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                product = new Products();
-                product.setProductId(rs.getInt(1));
-                product.setProductName(rs.getString(2));
-                product.setDescription(rs.getString(3));
-                product.setPrice(rs.getString(4));
-                product.setProductCategory(rs.getString(5));
-                product.setStock(rs.getInt(6));  // Updated to int
-                product.setPhoto(rs.getString(7));
-                product.setEmail(rs.getString(8));
-                list.add(product);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return list;
-    }
+    
 
    
 

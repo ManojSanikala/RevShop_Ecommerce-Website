@@ -290,55 +290,7 @@ footer {
 			</div>
 		</section>
 
-<%-- Others Section --%>
-		<section class="product-section">
-			<h2 class="text-center">Others</h2>
-			<div class="row">
-				<%
-				ProductDAOImpl dao3 = new ProductDAOImpl(DBConnect.getConn());
-				List<Products> otherList = dao3.getOtherProduct();
-				for (Products b : otherList) {
-				%>
-				<div class="col-md-3">
-					<div class="product-card">
-						<img src="products/<%=b.getPhoto()%>"
-							style="width: 150px; height: 200px;"
-							class="img-responsive center-block" alt="<%=b.getProductName()%>">
-						<p><%=b.getProductName()%></p>
 
-
-						<p class="price">
-							Rs.<%=b.getPrice()%>/-
-						</p>
-						<a href="view_products.jsp?pid=<%=b.getProductId()%>"
-							class="btn btn-primary btn-sm ml-2">Details</a>
-
-						<%
-						if (u == null) {
-						%>
-						<a href="login.jsp" class="btn btn-danger btn-sm ml-2">Add to
-							Cart</a>
-						<%
-						} else {
-						%>
-						<a href="cart?pid=<%=b.getProductId()%>&&uid=<%=u.getId()%>"
-							class="btn btn-danger btn-sm ml-2">Add to Cart</a>
-							
-						<%
-						}
-						%>
-					</div>
-				</div>
-				<%
-				}
-				%>
-			</div>
-			<div class="view-all-button">
-				<a href="all_others.jsp">
-					<button>View All</button>
-				</a>
-			</div>
-		</section>
 		<div class="container">
 			<div
 				class="row bg-success text-center p-5 text-white border-bottom shadow">

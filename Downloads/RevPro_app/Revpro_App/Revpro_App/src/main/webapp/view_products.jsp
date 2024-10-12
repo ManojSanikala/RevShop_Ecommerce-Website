@@ -1,5 +1,5 @@
 <%@ page import="java.util.List"%>
-<%@ page import="com.entity.ProductDtls"%>
+<%@ page import="com.entity.Products"%>
 <%@ page import="com.DAO.ProductDAOImpl"%>
 <%@ page import="com.DB.DBConnect"%>
 <%@ page import="com.entity.User"%>
@@ -154,13 +154,13 @@ body {
 <%
     int pid = Integer.parseInt(request.getParameter("pid"));
     ProductDAOImpl dao = new ProductDAOImpl(DBConnect.getConn());
-    ProductDtls b = dao.getProductById(pid);
+    Products b = dao.getProductById(pid);
 %>
 
 <div class="container">
     <!-- Left Side -->
     <div class="left-side">
-        <img src="products/<%=b.getPhotoName()%>" alt="Product Image">
+        <img src="products/<%=b.getPhoto()%>" alt="Product Image">
         <h4>Title: <%=b.getProductName()%></h4>
         <p>Category: <%=b.getProductCategory()%></p>
         <p>Price: Rs.<%=b.getPrice()%></p>

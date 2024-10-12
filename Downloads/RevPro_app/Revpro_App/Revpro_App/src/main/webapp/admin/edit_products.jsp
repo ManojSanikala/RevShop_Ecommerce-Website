@@ -4,7 +4,7 @@
 <%@page isELIgnored="false"%>
 <%@ page import="com.DB.DBConnect"%>
 <%@ page import="com.DAO.ProductDAOImpl"%>
-<%@ page import="com.entity.ProductDtls"%>
+<%@ page import="com.entity.Products"%>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -69,7 +69,7 @@ button {
 		<%
 		int id = Integer.parseInt(request.getParameter("id"));
 		ProductDAOImpl dao = new ProductDAOImpl(DBConnect.getConn());
-		ProductDtls b = dao.getProductById(id);
+		Products b = dao.getProductById(id);
 		%>
 
 		<form action="../editproducts" method="post">
@@ -101,13 +101,8 @@ button {
 
 			<!-- Product Status -->
 			<div class="form-group mb-3">
-				<label for="status" class="form-label">Product Status</label> <select
-					class="form-select" name="status" id="status" required>
-					<option value="available"
-						<%="Available".equals(b.getStatus()) ? "selected" : ""%>>Available</option>
-					<option value="unavailable"
-						<%="Unavailable".equals(b.getStatus()) ? "selected" : ""%>>Unavailable</option>
-				</select>
+				<label for="status" class="form-label">Product Stock</label>
+				<input type="number" name = "stock">
 			</div>
 
 			<!-- Submit Button -->

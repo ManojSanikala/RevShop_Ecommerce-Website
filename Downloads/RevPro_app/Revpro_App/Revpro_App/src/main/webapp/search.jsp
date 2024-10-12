@@ -1,6 +1,6 @@
 <%@page import="com.entity.User"%>
 <%@ page import="java.util.List"%>
-<%@ page import="com.entity.ProductDtls"%>
+<%@ page import="com.entity.Products"%>
 <%@ page import="com.DAO.ProductDAOImpl"%>
 <%@ page import="com.DB.DBConnect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -142,7 +142,7 @@ User u=(User)session.getAttribute("userobj");
         <% 
         String ch=request.getParameter("ch");
         ProductDAOImpl dao9 = new ProductDAOImpl(DBConnect.getConn());
-        List<ProductDtls> list = dao9.getProductBySearch(ch);
+        List<Products> list = dao9.getProductBySearch(ch);
         
         if (list.isEmpty()) {
         %>
@@ -150,11 +150,11 @@ User u=(User)session.getAttribute("userobj");
             showNoProductsFound();
         </script>
         <% } else { 
-            for(ProductDtls b : list) {
+            for(Products b : list) {
         %>
         <div class="col-md-3">
             <div class="product-card">
-                <img src="products/<%= b.getPhotoName() %>"
+                <img src="products/<%= b.getPhoto() %>"
                     style="width: 150px; height: 200px;"
                     class="img-responsive center-block"
                     alt="<%= b.getProductName() %>">

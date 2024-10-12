@@ -5,7 +5,7 @@
 <%@ page import="java.sql.Connection"%>
 <%@ page import="com.DB.DBConnect"%>
 <%@ page import="com.DAO.ProductDAOImpl"%>
-<%@ page import="com.entity.ProductDtls"%>
+<%@ page import="com.entity.Products"%>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -75,18 +75,18 @@ body {
 
 					<%
 					ProductDAOImpl dao = new ProductDAOImpl(DBConnect.getConn());
-					List<ProductDtls> list = dao.getAllProducts();
-					for (ProductDtls b : list) {
+					List<Products> list = dao.getAllProducts();
+					for (Products b : list) {
 					%>
 					<tr>
 						<td><%=b.getProductId()%></td>
-						<td><img src="../products/<%=b.getPhotoName()%>"
+						<td><img src="../products/<%=b.getPhoto()%>"
 							style="width: 50px; height: 50px;"></td>
 						<td><%=b.getProductName()%></td>
 						<td><%=b.getDescription()%></td>
 						<td><%=b.getPrice()%></td>
 						<td><%=b.getProductCategory()%></td>
-						<td><%=b.getStatus()%></td>
+						<td><%=b.getStock()%></td>
 						<td><a href="edit_products.jsp?id=<%=b.getProductId()%>"
 							class="btn btn-sm btn-primary">Edit</a>
 							<a href="../delete?id=<%=b.getProductId()%>" class="btn btn-sm btn-danger">Delete</a></td>
