@@ -1,0 +1,87 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CartServlet</servlet-name>
+  	<display-name>CartServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.CartServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RemoveProductCart</servlet-name>
+  	<display-name>RemoveProductCart</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.RemoveProductCart</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<display-name>OrderServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.OrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>WishlistServlet</servlet-name>
+  	<display-name>WishlistServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.WishlistServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RemoveWishlistServlet</servlet-name>
+  	<display-name>RemoveWishlistServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.RemoveWishlistServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ttt</servlet-name>
+  	<display-name>ttt</display-name>
+  	<description></description>
+  	<servlet-class>com.user.servlet.ttt</servlet-class>
+  </servlet>
+
+  	
+  
+  
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CartServlet</servlet-name>
+  	<url-pattern>/CartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RemoveProductCart</servlet-name>
+  	<url-pattern>/RemoveProductCart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderServlet</servlet-name>
+  	<url-pattern>/OrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WishlistServlet</servlet-name>
+  	<url-pattern>/WishlistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RemoveWishlistServlet</servlet-name>
+  	<url-pattern>/RemoveWishlistServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ttt</servlet-name>
+  	<url-pattern>/ttt</url-pattern>
+  </servlet-mapping>
+
+ 
+
+  
+
+ 
+</web-app>
