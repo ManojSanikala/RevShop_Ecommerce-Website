@@ -1,0 +1,19 @@
+# Specify language for Java files
+*.java linguist-language=Java
+
+# Specify language for HTML files
+*.html linguist-language=HTML
+# Specify language for CSS files
+*.css linguist-language=CSS
+
+# Specify language for JavaScript files
+*.js linguist-language=JavaScript
+
+# Specify language for JSP files
+*.jsp linguist-language=Java Server Pages
+
+# Specify language for Servlet files (typically .java files, handled as Java)
+*.java linguist-language=Java
+
+# Specify language for JDBC-related files (usually .java files)
+*.java linguist-language=Java
